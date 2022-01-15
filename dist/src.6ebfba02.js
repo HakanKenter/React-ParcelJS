@@ -29689,6 +29689,18 @@ function Compteur() {
       count = _useIncrement2[0],
       increment = _useIncrement2[1];
 
+  (0, _react.useEffect)(function () {
+    var timer = window.setInterval(function () {
+      increment();
+    }, 1000);
+    return function () {
+      console.log('tes');
+      clearInterval(timer);
+    };
+  }, []);
+  (0, _react.useEffect)(function () {
+    document.title = "Compteur " + count;
+  }, [count]);
   return /*#__PURE__*/_react.default.createElement("button", {
     onClick: increment
   }, " Incr\xE9ment ", count);
